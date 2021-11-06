@@ -1,0 +1,163 @@
+
+Bracket Balancing
+Programming challenge description:
+Given an string expression, write a program to find maximum length of substring for Balanced Brackets in a string (well-formedness). Expression contains either '(' or ')'.
+
+Example
+Input is ().
+Output is 2.
+Explanation:
+There are three substring here "(", ")" and "()". Length of substring which has maximum length and balanced bracket is 2 for "()".
+
+Example
+Input is )((())).
+Output is 6.
+Explanation:
+Length of substring which has balanced bracket and length is max is 6 for "((()))".
+
+Example
+Input is ))).
+Output is 0.
+Explanation:
+Output is 0, since no substring is balanced.
+
+Input:
+A string containing either '(' or ')'.
+
+Output:
+Maximum length of substring which contains the Balanced Brackets.
+
+Test 1
+Test Input
+Download Test 1 Input
+()(())
+Expected Output
+Download Test 1 Input
+6
+Test 2
+Test Input
+Download Test 2 Input
+)(()
+Expected Output
+Download Test 2 Input
+2
+
+
+
+Time Finished
+Singtel logo
+Question 3 of 5
+Help
+
+Settings
+Powered by HireVue
+Singtel DT: Software Engineer - Backend Chapter
+Time Remaining:
+16:21
+
+Challenge Left
+
+Challenge Right
+
+Submit Final Answer
+Editor
+
+Reset Code
+
+)
+1
+import java.io.BufferedReader;
+2
+import java.io.IOException;
+3
+import java.io.InputStreamReader;
+4
+import java.nio.charset.StandardCharsets;
+5
+​
+6
+public class Main {
+7
+  /**
+8
+   * Iterate through each line of input.
+9
+   */
+10
+  public static void main(String[] args) throws IOException {
+11
+    InputStreamReader reader = new InputStreamReader(System.in, StandardCharsets.UTF_8);
+12
+    BufferedReader in = new BufferedReader(reader);
+13
+    String line;
+14
+    while ((line = in.readLine()) != null) {
+15
+      System.out.println(count(line));
+16
+    }
+17
+  }
+18
+  
+19
+  public static int count(String strValue){
+20
+    char[] strArray = strValue.toCharArray();
+21
+    int openBracketCount = 0;
+22
+    int closeBracketCount = 0;
+23
+    for (int i =0 ; i<strArray.length; i++){
+24
+      if(strArray[i]=='('){
+25
+        openBracketCount++;
+26
+      } else if (strArray[i]=='}'){
+27
+        closeBracketCount++;
+28
+      }
+29
+    }
+30
+    
+31
+    int evenBrackets = 0;
+32
+    if(openBracketCount>closeBracketCount){
+33
+      evenBrackets = openBracketCount-closeBracketCount;
+34
+    } else {
+35
+      evenBrackets = closeBracketCount-openBracketCount;
+36
+    }
+37
+    return (evenBrackets*2);
+38
+  }
+39
+}
+Test Case Output
+
+Run Test Cases
+
+Running test cases... Done
+– – – – – – – – – – – – – –
+Test 1
+Passed
+ Expand
+Test 2
+ Failed
+Test Input:
+)(()
+Expected Output:
+2
+Your Output:
+4
+Challenge
